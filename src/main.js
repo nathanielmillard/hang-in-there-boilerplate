@@ -1,4 +1,9 @@
 // query selector variables go here 👇
+    //Global Variables (focus less on these)
+    //can also go within functions
+var currentTitle = document.querySelector(".poster-title");
+var currentQuote = document.querySelector(".poster-quote");
+var currentImage = document.querySelector(".poster-img");
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -99,8 +104,7 @@ var quotes = [
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
 var savedPosters = [
-  
-  )
+
 ];
 var currentPoster;
 
@@ -111,3 +115,23 @@ var currentPoster;
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
+
+
+// I want a function that will determine the title displayed on the homepage
+// ideally this function should when called should "choose" a title from an
+// existing array and return/display this chosen title on the page
+
+function getRandomTitle() {
+currentTitle.innerText= titles[getRandomIndex(titles)]
+}
+getRandomTitle();
+
+function getRandomQuote() {
+  currentQuote.innerText= quotes[getRandomIndex(quotes)]
+}
+getRandomQuote();
+
+function getRandomImage() {
+  currentImage.src = images[getRandomIndex(images)];
+}
+getRandomImage();
