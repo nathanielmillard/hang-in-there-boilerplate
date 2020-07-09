@@ -4,6 +4,7 @@
 var currentTitle = document.querySelector(".poster-title");
 var currentQuote = document.querySelector(".poster-quote");
 var currentImage = document.querySelector(".poster-img");
+var showRandomPosterBtn = document.querySelector(".show-random");
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -108,8 +109,13 @@ var savedPosters = [
 ];
 var currentPoster;
 
-// event listeners go here 👇
+// we eventually need to assign currentPoster to a funtion that would load random
+// image, quote, and title;
 
+
+// event listeners go here 👇
+// window.addEventListener('load', loadRandomPoster);
+showRandomPosterBtn.addEventListener('click', newRandomPoster());
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 function getRandomIndex(array) {
@@ -117,17 +123,30 @@ function getRandomIndex(array) {
 }
 
 
-// I want a function that will determine the title displayed on the homepage
-// ideally this function should when called should "choose" a title from an
-// existing array and return/display this chosen title on the page
+// function newRandomPoster() {
+//   console.log(new Poster);
+//   return new Poster (images[getRandomIndex(images)], titles[getRandomIndex(titles)],
+//   quotes[getRandomIndex(quotes)]);
+// } // NEEEED HELLLLLPPPP!
+
+//loadRandomPoster()
+// this should invoke when page is reloaded and display random poster, quote and title
+
+// newRandomPoster()
+// instantiate an new instance of the "main-poster"
+// this function would change the random poster, quote, and title on click
+// get random image from array and pull that image and display to DOM
+// get random quote from array and pull that quote and display to DOM
+// get random title from array and pull that title and display to DOM
+
 
 function getRandomTitle() {
-currentTitle.innerText= titles[getRandomIndex(titles)]
+currentTitle.innerText = titles[getRandomIndex(titles)]
 }
 getRandomTitle();
 
 function getRandomQuote() {
-  currentQuote.innerText= quotes[getRandomIndex(quotes)]
+  currentQuote.innerText = quotes[getRandomIndex(quotes)]
 }
 getRandomQuote();
 
