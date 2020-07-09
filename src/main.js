@@ -105,7 +105,7 @@ var quotes = [
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
 var savedPosters = [
-
+ // data model
 ];
 var currentPoster;
 
@@ -114,8 +114,8 @@ var currentPoster;
 
 
 // event listeners go here 👇
-// window.addEventListener('load', loadRandomPoster);
-showRandomPosterBtn.addEventListener('click', newRandomPoster());
+window.addEventListener('load', newRandomPoster);
+showRandomPosterBtn.addEventListener('click', newRandomPoster);
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 function getRandomIndex(array) {
@@ -123,13 +123,21 @@ function getRandomIndex(array) {
 }
 
 
-// function newRandomPoster() {
-//   console.log(new Poster);
-//   return new Poster (images[getRandomIndex(images)], titles[getRandomIndex(titles)],
-//   quotes[getRandomIndex(quotes)]);
-// } // NEEEED HELLLLLPPPP!
+function newRandomPoster() {
+  currentPoster = new Poster(images[getRandomIndex(images)], titles[getRandomIndex(titles)],
+  quotes[getRandomIndex(quotes)]);
+  currentTitle.innerText = currentPoster.title;
+  currentQuote.innerText = currentPoster.quote;
+  currentImage.src = currentPoster.imageURL;
+  console.log(currentPoster)
+  return currentPoster;
+}
 
-//loadRandomPoster()
+
+
+// loadRandomPoster() {
+//
+// }
 // this should invoke when page is reloaded and display random poster, quote and title
 
 // newRandomPoster()
@@ -140,17 +148,17 @@ function getRandomIndex(array) {
 // get random title from array and pull that title and display to DOM
 
 
-function getRandomTitle() {
-currentTitle.innerText = titles[getRandomIndex(titles)]
-}
-getRandomTitle();
-
-function getRandomQuote() {
-  currentQuote.innerText = quotes[getRandomIndex(quotes)]
-}
-getRandomQuote();
-
-function getRandomImage() {
-  currentImage.src = images[getRandomIndex(images)];
-}
-getRandomImage();
+// function getRandomTitle() {
+// currentTitle.innerText = titles[getRandomIndex(titles)]
+// }
+// getRandomTitle();
+//
+// function getRandomQuote() {
+//   currentQuote.innerText = quotes[getRandomIndex(quotes)]
+// }
+// getRandomQuote();
+//
+// function getRandomImage() {
+//   currentImage.src = images[getRandomIndex(images)];
+// }
+// getRandomImage();
