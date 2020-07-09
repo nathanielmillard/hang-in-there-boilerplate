@@ -109,48 +109,24 @@ var savedPosters = [
 ];
 var currentPoster;
 
-// we eventually need to assign currentPoster to a funtion that would load random
-// image, quote, and title;
 
 
 // event listeners go here 👇
-// window.addEventListener('load', loadRandomPoster);
-showRandomPosterBtn.addEventListener('click', newRandomPoster());
+window.addEventListener('load', newRandomPoster);
+showRandomPosterBtn.addEventListener('click', newRandomPoster);
+
 // functions and event handlers go here 👇
-// (we've provided one for you to get you started)!
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-
-// function newRandomPoster() {
-//   console.log(new Poster);
-//   return new Poster (images[getRandomIndex(images)], titles[getRandomIndex(titles)],
-//   quotes[getRandomIndex(quotes)]);
-// } // NEEEED HELLLLLPPPP!
-
-//loadRandomPoster()
-// this should invoke when page is reloaded and display random poster, quote and title
-
-// newRandomPoster()
-// instantiate an new instance of the "main-poster"
-// this function would change the random poster, quote, and title on click
-// get random image from array and pull that image and display to DOM
-// get random quote from array and pull that quote and display to DOM
-// get random title from array and pull that title and display to DOM
-
-
-function getRandomTitle() {
-currentTitle.innerText = titles[getRandomIndex(titles)]
-}
-getRandomTitle();
-
-function getRandomQuote() {
-  currentQuote.innerText = quotes[getRandomIndex(quotes)]
-}
-getRandomQuote();
-
-function getRandomImage() {
-  currentImage.src = images[getRandomIndex(images)];
-}
-getRandomImage();
+function newRandomPoster(){
+  currentPoster = new Poster(
+    images[getRandomIndex(images)],
+    titles[getRandomIndex(titles)],
+    quotes[getRandomIndex(quotes)],
+  )
+  currentTitle.innerText = currentPoster.title
+  currentImage.src = currentPoster.imageURL
+  currentQuote.innerText = currentPoster.quote
+};
