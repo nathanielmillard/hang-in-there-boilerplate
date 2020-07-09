@@ -128,3 +128,32 @@ function newRandomPoster(){
   currentImage.src = currentPoster.imageURL
   currentQuote.innerText = currentPoster.quote
 };
+//
+// When a user clicks the “Make Your Own Poster” button
+  //assign variable for button.
+  //assign new event listener for "Make Own Poster" button that navigates to
+  //showing poster form to make own poster
+  //we should see the form and only the form
+  //the main poster should be hidden
+  
+// When a user clicks the “View Saved Posters” button
+  //assign variable for this button
+  //the saved posters section shoul be displayed
+  //we should see the saved posters area only
+  //the main poster should be hidden
+
+// When a user clicks the “Nevermind, take me back!”
+//or “Back to Main” buttons, we should only see the main poster section
+
+// In summary: Be able to switch between the three views (main poster,
+//form, and saved posters) on the correct button click
+
+
+
+
+
+
+
+
+
+ks
