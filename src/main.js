@@ -5,6 +5,13 @@ var currentTitle = document.querySelector(".poster-title");
 var currentQuote = document.querySelector(".poster-quote");
 var currentImage = document.querySelector(".poster-img");
 var showRandomPosterBtn = document.querySelector(".show-random");
+var showMakePosterBtn = document.querySelector(".show-form");
+var posterFormHidden = document.querySelector(".poster-form");
+var mainPoster = document.querySelector(".main-poster");
+var takeMeBackBtn = document.querySelector(".show-main");
+var viewSavedPosterBtn = document.querySelector(".show-saved");
+var savedFormHidden = document.querySelector(".saved-posters");
+var backToMainBtn = document.querySelector(".back-to-main");
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -109,56 +116,55 @@ var savedPosters = [
 ];
 var currentPoster;
 
-// we eventually need to assign currentPoster to a funtion that would load random
-// image, quote, and title;
-
-
 // event listeners go here 👇
 window.addEventListener('load', newRandomPoster);
 showRandomPosterBtn.addEventListener('click', newRandomPoster);
+showMakePosterBtn.addEventListener('click', changeToPosterForm);
+takeMeBackBtn.addEventListener('click', takeMeBack);
+viewSavedPosterBtn.addEventListener('click', viewSavedPoster);
+backToMainBtn.addEventListener('click', takeMeBack);
+
 // functions and event handlers go here 👇
-// (we've provided one for you to get you started)!
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-
 function newRandomPoster() {
-  currentPoster = new Poster(images[getRandomIndex(images)], titles[getRandomIndex(titles)],
-  quotes[getRandomIndex(quotes)]);
-  currentTitle.innerText = currentPoster.title;
-  currentQuote.innerText = currentPoster.quote;
-  currentImage.src = currentPoster.imageURL;
-  console.log(currentPoster)
-  return currentPoster;
-}
+  currentPoster = new Poster(
+    images[getRandomIndex(images)],
+    titles[getRandomIndex(titles)],
+    quotes[getRandomIndex(quotes)],
+  )
+  currentTitle.innerText = currentPoster.title
+  currentImage.src = currentPoster.imageURL
+  currentQuote.innerText = currentPoster.quote
+};
 
+function changeToPosterForm() {
+  event.preventDefault();
+  mainPoster.classList.add("hidden");
+  posterFormHidden.classList.remove("hidden");
+};
 
+function takeMeBack() {
+  mainPoster.classList.remove("hidden");
+  posterFormHidden.classList.add("hidden");
+};
 
-// loadRandomPoster() {
-//
-// }
-// this should invoke when page is reloaded and display random poster, quote and title
+function viewSavedPoster() {
+  event.preventDefault();
+  mainPoster.classList.add("hidden");
+  savedFormHidden.classList.remove("hidden");
+};
 
-// newRandomPoster()
-// instantiate an new instance of the "main-poster"
-// this function would change the random poster, quote, and title on click
-// get random image from array and pull that image and display to DOM
-// get random quote from array and pull that quote and display to DOM
-// get random title from array and pull that title and display to DOM
+// When a user clicks the “View Saved Posters” button
+  //assign variable for this button
+  //the saved posters section shoul be displayed
+  //we should see the saved posters area only
+  //the main poster should be hidden
 
+// When a user clicks the “Nevermind, take me back!”
+//or “Back to Main” buttons, we should only see the main poster section
 
-// function getRandomTitle() {
-// currentTitle.innerText = titles[getRandomIndex(titles)]
-// }
-// getRandomTitle();
-//
-// function getRandomQuote() {
-//   currentQuote.innerText = quotes[getRandomIndex(quotes)]
-// }
-// getRandomQuote();
-//
-// function getRandomImage() {
-//   currentImage.src = images[getRandomIndex(images)];
-// }
-// getRandomImage();
+// In summary: Be able to switch between the three views (main poster,
+//form, and saved posters) on the correct button click
