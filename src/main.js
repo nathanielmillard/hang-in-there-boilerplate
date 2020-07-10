@@ -5,6 +5,9 @@ var currentTitle = document.querySelector(".poster-title");
 var currentQuote = document.querySelector(".poster-quote");
 var currentImage = document.querySelector(".poster-img");
 var showRandomPosterBtn = document.querySelector(".show-random");
+var showMakePosterBtn = document.querySelector(".show-form");
+var posterFormHidden = document.querySelector(".poster-form");
+var mainPoster = document.querySelector(".main-poster");
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -112,13 +115,14 @@ var currentPoster;
 // event listeners go here 👇
 window.addEventListener('load', newRandomPoster);
 showRandomPosterBtn.addEventListener('click', newRandomPoster);
+showMakePosterBtn.addEventListener('click', changeToPosterForm);
 
 // functions and event handlers go here 👇
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-function newRandomPoster(){
+function newRandomPoster() {
   currentPoster = new Poster(
     images[getRandomIndex(images)],
     titles[getRandomIndex(titles)],
@@ -128,14 +132,14 @@ function newRandomPoster(){
   currentImage.src = currentPoster.imageURL
   currentQuote.innerText = currentPoster.quote
 };
-//
-// When a user clicks the “Make Your Own Poster” button
-  //assign variable for button.
-  //assign new event listener for "Make Own Poster" button that navigates to
-  //showing poster form to make own poster
-  //we should see the form and only the form
-  //the main poster should be hidden
-  
+
+function changeToPosterForm() {
+  event.preventDefault();
+  mainPoster.classList.add("hidden");
+  posterFormHidden.classList.remove("hidden");
+};
+
+
 // When a user clicks the “View Saved Posters” button
   //assign variable for this button
   //the saved posters section shoul be displayed
@@ -147,13 +151,3 @@ function newRandomPoster(){
 
 // In summary: Be able to switch between the three views (main poster,
 //form, and saved posters) on the correct button click
-
-
-
-
-
-
-
-
-
-ks
