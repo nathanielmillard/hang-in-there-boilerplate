@@ -9,7 +9,8 @@ var showMakePosterBtn = document.querySelector(".show-form");
 var posterFormHidden = document.querySelector(".poster-form");
 var mainPoster = document.querySelector(".main-poster");
 var takeMeBackBtn = document.querySelector(".show-main");
-
+var viewSavedPosterBtn = document.querySelector(".show-saved");
+var savedFormHidden = document.querySelector(".saved-posters")
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -118,7 +119,7 @@ window.addEventListener('load', newRandomPoster);
 showRandomPosterBtn.addEventListener('click', newRandomPoster);
 showMakePosterBtn.addEventListener('click', changeToPosterForm);
 takeMeBackBtn.addEventListener('click', takeMeBack);
-
+viewSavedPosterBtn.addEventListener('click', viewSavedPoster);
 // functions and event handlers go here 👇
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -146,6 +147,11 @@ function takeMeBack() {
   posterFormHidden.classList.add("hidden");
 };
 
+function viewSavedPoster() {
+  event.preventDefault();
+  mainPoster.classList.add("hidden");
+  savedFormHidden.classList.remove("hidden");
+};
 
 // When a user clicks the “View Saved Posters” button
   //assign variable for this button
