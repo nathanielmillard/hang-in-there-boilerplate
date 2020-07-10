@@ -8,6 +8,7 @@ var showRandomPosterBtn = document.querySelector(".show-random");
 var showMakePosterBtn = document.querySelector(".show-form");
 var posterFormHidden = document.querySelector(".poster-form");
 var mainPoster = document.querySelector(".main-poster");
+var takeMeBackBtn = document.querySelector(".show-main");
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -116,6 +117,7 @@ var currentPoster;
 window.addEventListener('load', newRandomPoster);
 showRandomPosterBtn.addEventListener('click', newRandomPoster);
 showMakePosterBtn.addEventListener('click', changeToPosterForm);
+takeMeBackBtn.addEventListener('click', takeMeBack);
 
 // functions and event handlers go here 👇
 function getRandomIndex(array) {
@@ -137,6 +139,11 @@ function changeToPosterForm() {
   event.preventDefault();
   mainPoster.classList.add("hidden");
   posterFormHidden.classList.remove("hidden");
+};
+
+function takeMeBack() {
+  mainPoster.classList.remove("hidden");
+  posterFormHidden.classList.add("hidden");
 };
 
 
