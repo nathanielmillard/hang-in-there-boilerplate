@@ -160,21 +160,6 @@ function viewSavedPoster() {
   savedFormHidden.classList.remove("hidden");
 };
 
-
-/// globally declare created poster??
-// function showMyPoster() {
-//   createdPoster = new Poster(
-//     images: ".poster.image-url",
-//     titles: ".poster-title",
-//     quotes: ".poster-quote"
-//   )
-//   currentTitle.innerText = createdPoster.title;
-//   currentImage.src = createdPoster.imageURL;
-//   currentQuote.innerText = createdPoster.quote;
-//   takeMeBack();
-// };
-//
-
 function showMyPoster() {
   event.preventDefault();
   var createdPoster = new Poster(
@@ -182,24 +167,19 @@ function showMyPoster() {
     inputPosterTitle.value,
     inputPosterQuote.value
 )
-
-
   currentTitle.innerText = createdPoster.title;
   currentQuote.innerText = createdPoster.quote;
-  // console.log(inputPosterTitle.value)
   currentImage.src = createdPoster.imageURL;
-  // currentQuote.innerText = createdPoster.quote
-  mainPoster.classList.remove("hidden");
-  posterFormHidden.classList.add("hidden");
+  takeMeBack()
 };
 
 
 // Iteration 2 Steps
-// A) On the new poster form view, users should be able to fill out the three input
+// A) √ On the new poster form view, users should be able to fill out the three input
 //    fields and then hit the save button
-// B) When the save button is clicked, several things will happen:
+// B) √ When the save button is clicked, several things will happen:
 // 1) Save the submitted data into the respective arrays (image URL into the
 //    images array, etc) so that future random posters can use the user-created data
-// 2) Use the values from the inputs to create a new instance of our Poster class
-// 3) Change back to the main poster view (hiding the form view again)
-// 4) Display the newly created poster image, title, and quote in the main view
+// 2) √ Use the values from the inputs to create a new instance of our Poster class
+// 3) √ Change back to the main poster view (hiding the form view again)
+// 4) √   Display the newly created poster image, title, and quote in the main view
