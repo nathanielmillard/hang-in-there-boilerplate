@@ -175,4 +175,4 @@ function showMyPoster() {
   quotes.push(inputPosterQuote.value);
   console.log(titles, quotes);
   takeMeBack()
-};
+}; 
