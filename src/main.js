@@ -12,7 +12,10 @@ var takeMeBackBtn = document.querySelector(".show-main");
 var viewSavedPosterBtn = document.querySelector(".show-saved");
 var savedFormHidden = document.querySelector(".saved-posters");
 var backToMainBtn = document.querySelector(".back-to-main");
-
+var showMyPosterBtn = document.querySelector(".make-poster");
+var inputPosterImage = document.querySelector("#poster-image-url");
+var inputPosterTitle = document.querySelector("#poster-title");
+var inputPosterQuote = document.querySelector("#poster-quote");
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -115,7 +118,7 @@ var savedPosters = [
  // data model
 ];
 var currentPoster;
-
+var createdPoster;
 // event listeners go here 👇
 window.addEventListener('load', newRandomPoster);
 showRandomPosterBtn.addEventListener('click', newRandomPoster);
@@ -123,7 +126,7 @@ showMakePosterBtn.addEventListener('click', changeToPosterForm);
 takeMeBackBtn.addEventListener('click', takeMeBack);
 viewSavedPosterBtn.addEventListener('click', viewSavedPoster);
 backToMainBtn.addEventListener('click', takeMeBack);
-
+showMyPosterBtn.addEventListener('click', showMyPoster);
 // functions and event handlers go here 👇
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -157,14 +160,19 @@ function viewSavedPoster() {
   savedFormHidden.classList.remove("hidden");
 };
 
-// When a user clicks the “View Saved Posters” button
-  //assign variable for this button
-  //the saved posters section shoul be displayed
-  //we should see the saved posters area only
-  //the main poster should be hidden
-
-// When a user clicks the “Nevermind, take me back!”
-//or “Back to Main” buttons, we should only see the main poster section
-
-// In summary: Be able to switch between the three views (main poster,
-//form, and saved posters) on the correct button click
+function showMyPoster() {
+  event.preventDefault();
+  var createdPoster = new Poster(
+    inputPosterImage.value,
+    inputPosterTitle.value,
+    inputPosterQuote.value
+)
+  currentTitle.innerText = createdPoster.title;
+  currentQuote.innerText = createdPoster.quote;
+  currentImage.src = createdPoster.imageURL;
+  images.push(inputPosterImage.value);
+  titles.push(inputPosterTitle.value);
+  quotes.push(inputPosterQuote.value);
+  console.log(titles, quotes);
+  takeMeBack()
+}; 
