@@ -16,6 +16,9 @@ var showMyPosterBtn = document.querySelector(".make-poster");
 var inputPosterImage = document.querySelector("#poster-image-url");
 var inputPosterTitle = document.querySelector("#poster-title");
 var inputPosterQuote = document.querySelector("#poster-quote");
+var savePosterBtn = document.querySelector(".save-poster");
+var thisPoster = document.querySelector(".poster");
+
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -115,10 +118,11 @@ var quotes = [
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
 var savedPosters = [
- // data model
+
 ];
 var currentPoster;
 var createdPoster;
+
 // event listeners go here 👇
 window.addEventListener('load', newRandomPoster);
 showRandomPosterBtn.addEventListener('click', newRandomPoster);
@@ -127,11 +131,11 @@ takeMeBackBtn.addEventListener('click', takeMeBack);
 viewSavedPosterBtn.addEventListener('click', viewSavedPoster);
 backToMainBtn.addEventListener('click', takeMeBack);
 showMyPosterBtn.addEventListener('click', showMyPoster);
+savePosterBtn.addEventListener('click', saveMyPoster)
 // functions and event handlers go here 👇
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
-
 function newRandomPoster() {
   currentPoster = new Poster(
     images[getRandomIndex(images)],
@@ -142,24 +146,20 @@ function newRandomPoster() {
   currentImage.src = currentPoster.imageURL
   currentQuote.innerText = currentPoster.quote
 };
-
 function changeToPosterForm() {
   event.preventDefault();
   mainPoster.classList.add("hidden");
   posterFormHidden.classList.remove("hidden");
 };
-
 function takeMeBack() {
   mainPoster.classList.remove("hidden");
   posterFormHidden.classList.add("hidden");
 };
-
 function viewSavedPoster() {
   event.preventDefault();
   mainPoster.classList.add("hidden");
   savedFormHidden.classList.remove("hidden");
 };
-
 function showMyPoster() {
   event.preventDefault();
   var createdPoster = new Poster(
@@ -175,4 +175,18 @@ function showMyPoster() {
   quotes.push(inputPosterQuote.value);
   console.log(titles, quotes);
   takeMeBack()
-}; 
+};
+
+function saveMyPoster() {
+  savedPosters.push(thisPoster);
+};
+// When a user clicks the “Save This Poster” button,
+// the current main poster will be added to savedPosters
+
+// If a user clicks the “Save This Poster” more than once
+//on a single poster, still only be saved once (no duplicates)
+
+// When a user clicks the “Show Saved Posters” button,
+// we should see the saved posters section
+// All the posters in the savedPosters array
+//should be displayed in the saved posters grid section
