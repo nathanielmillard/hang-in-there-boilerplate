@@ -160,6 +160,7 @@ function viewSavedPoster() {
   savedFormHidden.classList.remove("hidden");
 };
 
+
 /// globally declare created poster??
 // function showMyPoster() {
 //   createdPoster = new Poster(
@@ -173,18 +174,25 @@ function viewSavedPoster() {
 //   takeMeBack();
 // };
 //
-// function showMyPoster() {
-//   // createdPoster = new Poster(
-//   //   images: ".poster-image-url",
-//   //   titles: ".poster-title",
-//   //   qutoes: ".poster-quote",
-//   // )
-//   // currentTitle.innerText = createdPoster.title
-//   currentImage.src = createdPoster.imageURL
-//   currentQuote.innerText = createdPoster.quote
-//   mainPoster.classList.remove("hidden");
-//   posterFormHidden.classList.add("hidden");
-// };
+
+function showMyPoster() {
+  event.preventDefault();
+  var createdPoster = new Poster(
+    inputPosterImage.value,
+    inputPosterTitle.value,
+    inputPosterQuote.value
+)
+
+
+  currentTitle.innerText = createdPoster.title;
+  currentQuote.innerText = createdPoster.quote;
+  // console.log(inputPosterTitle.value)
+  currentImage.src = createdPoster.imageURL;
+  // currentQuote.innerText = createdPoster.quote
+  mainPoster.classList.remove("hidden");
+  posterFormHidden.classList.add("hidden");
+};
+
 
 // Iteration 2 Steps
 // A) On the new poster form view, users should be able to fill out the three input
