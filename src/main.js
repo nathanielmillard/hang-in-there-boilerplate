@@ -17,7 +17,7 @@ var inputPosterImage = document.querySelector("#poster-image-url");
 var inputPosterTitle = document.querySelector("#poster-title");
 var inputPosterQuote = document.querySelector("#poster-quote");
 var savePosterBtn = document.querySelector(".save-poster");
-var thisPoster = document.querySelector(".poster");
+var ourCurrentPoster = document.querySelector(".poster");
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -178,10 +178,24 @@ function showMyPoster() {
 };
 
 function saveMyPoster() {
-  savedPosters.push(thisPoster);
+  var currentVisiblePoster = new Poster(
+    currentImage.src,
+    currentTitle.innerText,
+    currentQuote.innerText,
+  );
+  // console.log(savedPosters);
+  // for (var i=0; i < savedPosters.length; i++) {
+  //   if ((savedPosters[i].imageURL == currentVisiblePoster.imageURL) &&
+  //     (savedPosters[i].title == currentVisiblePoster.title) &&
+  //     (savedPosters[i].quote == currentVisiblePoster.quote)) {
+  //       alert("duplicate");
+  //     } else {
+        savedPosters.push(currentVisiblePoster)
+  //     }
+  // }
+  console.log(savedPosters);
+  console.log(currentVisiblePoster);
 };
-// When a user clicks the “Save This Poster” button,
-// the current main poster will be added to savedPosters
 
 // If a user clicks the “Save This Poster” more than once
 //on a single poster, still only be saved once (no duplicates)
