@@ -175,16 +175,4 @@ function showMyPoster() {
   quotes.push(inputPosterQuote.value);
   console.log(titles, quotes);
   takeMeBack()
-
 };
-
-
-// Iteration 2 Steps
-// A) √ On the new poster form view, users should be able to fill out the three input
-//    fields and then hit the save button
-// B) √ When the save button is clicked, several things will happen:
-// 1) √ Save the submitted data into the respective arrays (image URL into the
-//    images array, etc) so that future random posters can use the user-created data
-// 2) √ Use the values from the inputs to create a new instance of our Poster class
-// 3) √ Change back to the main poster view (hiding the form view again)
-// 4) √   Display the newly created poster image, title, and quote in the main view
