@@ -12,7 +12,10 @@ var takeMeBackBtn = document.querySelector(".show-main");
 var viewSavedPosterBtn = document.querySelector(".show-saved");
 var savedFormHidden = document.querySelector(".saved-posters");
 var backToMainBtn = document.querySelector(".back-to-main");
-
+var showMyPosterBtn = document.querySelector(".make-poster");
+var inputPosterImage = document.querySelector("#poster-image-url");
+var inputPosterTitle = document.querySelector("#poster-title");
+var inputPosterQuote = document.querySelector("#poster-quote");
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -115,7 +118,7 @@ var savedPosters = [
  // data model
 ];
 var currentPoster;
-
+var createdPoster;
 // event listeners go here 👇
 window.addEventListener('load', newRandomPoster);
 showRandomPosterBtn.addEventListener('click', newRandomPoster);
@@ -123,7 +126,7 @@ showMakePosterBtn.addEventListener('click', changeToPosterForm);
 takeMeBackBtn.addEventListener('click', takeMeBack);
 viewSavedPosterBtn.addEventListener('click', viewSavedPoster);
 backToMainBtn.addEventListener('click', takeMeBack);
-
+showMyPosterBtn.addEventListener('click', showMyPoster);
 // functions and event handlers go here 👇
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -157,14 +160,38 @@ function viewSavedPoster() {
   savedFormHidden.classList.remove("hidden");
 };
 
-// When a user clicks the “View Saved Posters” button
-  //assign variable for this button
-  //the saved posters section shoul be displayed
-  //we should see the saved posters area only
-  //the main poster should be hidden
+/// globally declare created poster??
+// function showMyPoster() {
+//   createdPoster = new Poster(
+//     images: ".poster.image-url",
+//     titles: ".poster-title",
+//     quotes: ".poster-quote"
+//   )
+//   currentTitle.innerText = createdPoster.title;
+//   currentImage.src = createdPoster.imageURL;
+//   currentQuote.innerText = createdPoster.quote;
+//   takeMeBack();
+// };
+//
+// function showMyPoster() {
+//   // createdPoster = new Poster(
+//   //   images: ".poster-image-url",
+//   //   titles: ".poster-title",
+//   //   qutoes: ".poster-quote",
+//   // )
+//   // currentTitle.innerText = createdPoster.title
+//   currentImage.src = createdPoster.imageURL
+//   currentQuote.innerText = createdPoster.quote
+//   mainPoster.classList.remove("hidden");
+//   posterFormHidden.classList.add("hidden");
+// };
 
-// When a user clicks the “Nevermind, take me back!”
-//or “Back to Main” buttons, we should only see the main poster section
-
-// In summary: Be able to switch between the three views (main poster,
-//form, and saved posters) on the correct button click
+// Iteration 2 Steps
+// A) On the new poster form view, users should be able to fill out the three input
+//    fields and then hit the save button
+// B) When the save button is clicked, several things will happen:
+// 1) Save the submitted data into the respective arrays (image URL into the
+//    images array, etc) so that future random posters can use the user-created data
+// 2) Use the values from the inputs to create a new instance of our Poster class
+// 3) Change back to the main poster view (hiding the form view again)
+// 4) Display the newly created poster image, title, and quote in the main view
