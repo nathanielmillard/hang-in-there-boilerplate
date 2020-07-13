@@ -197,24 +197,29 @@ function showMyPoster() {
   takeMeBack()
 };
 
+var currentVisiblePoster = new Poster(
+  currentImage.src,
+  currentTitle.innerText,
+  currentQuote.innerText,
+);
+
 function saveMyPoster() {
-  var currentVisiblePoster = new Poster(
-    currentImage.src,
-    currentTitle.innerText,
-    currentQuote.innerText,
-  );
-  console.log(savedPosters);
-  for (var i=0; i < savedPosters.length; i++) {
-    if ((savedPosters[i].imageURL == currentVisiblePoster.imageURL) &&
-      (savedPosters[i].title == currentVisiblePoster.title) &&
-      (savedPosters[i].quote == currentVisiblePoster.quote)) {
-        alert("duplicate");
-      } else {
+  // for (var i=0; i < savedPosters.length; i++) {
+  //   if (savedPosters[i].title !== currentTitle.innerText) {
+  //       savedPosters.push(currentVisiblePoster)
+  //     } else if (savedPosters.length == 0) {
         savedPosters.push(currentVisiblePoster)
-      }
-  }
+      // }
+      // }
   console.log(savedPosters);
 };
+
+function displayOff(){
+  mainPoster.classList.add("hidden"),
+  savedFormHidden.classList.add("hidden"),
+  posterFormHidden.classList.add("hidden")
+}
+
 
 // If a user clicks the “Save This Poster” more than once
 //on a single poster, still only be saved once (no duplicates)
