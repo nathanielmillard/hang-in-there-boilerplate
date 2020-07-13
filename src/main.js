@@ -18,6 +18,7 @@ var inputPosterTitle = document.querySelector("#poster-title");
 var inputPosterQuote = document.querySelector("#poster-quote");
 var savePosterBtn = document.querySelector(".save-poster");
 var ourCurrentPoster = document.querySelector(".poster");
+var savedPosterGrid = document.querySelector(".saved-posters-grid");
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -118,7 +119,6 @@ var quotes = [
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
 var savedPosters = [
-
 ];
 var currentPoster;
 var createdPoster;
@@ -128,7 +128,7 @@ window.addEventListener('load', newRandomPoster);
 showRandomPosterBtn.addEventListener('click', newRandomPoster);
 showMakePosterBtn.addEventListener('click', changeToPosterForm);
 takeMeBackBtn.addEventListener('click', takeMeBack);
-viewSavedPosterBtn.addEventListener('click', viewSavedPoster);
+viewSavedPosterBtn.addEventListener('click', viewSavedPosters);
 backToMainBtn.addEventListener('click', takeMeBack);
 showMyPosterBtn.addEventListener('click', showMyPoster);
 savePosterBtn.addEventListener('click', saveMyPoster)
@@ -155,11 +155,31 @@ function takeMeBack() {
   mainPoster.classList.remove("hidden");
   posterFormHidden.classList.add("hidden");
 };
-function viewSavedPoster() {
+
+function viewSavedPosters() {
   event.preventDefault();
   mainPoster.classList.add("hidden");
   savedFormHidden.classList.remove("hidden");
+  makeMiniPosters();
 };
+
+function makeMiniPosters(){
+  for (i=0; i<savedPosters.length; i++){
+    var miniPoster = `
+    <article class="mini-poster">
+      <img src=${savedPosters[i].imageURL}>
+      <h2>${savedPosters[i].title}</h2>
+      <h4>${savedPosters[i].quote}</h4>
+    </article>
+    `
+    savedPosterGrid.insertAdjacentHTML('beforeend', miniPoster);
+  }
+}
+// iterate through each saved array
+// creating an html element "small poster"
+// and push to that article
+
+
 function showMyPoster() {
   event.preventDefault();
   var createdPoster = new Poster(
@@ -183,18 +203,17 @@ function saveMyPoster() {
     currentTitle.innerText,
     currentQuote.innerText,
   );
-  // console.log(savedPosters);
-  // for (var i=0; i < savedPosters.length; i++) {
-  //   if ((savedPosters[i].imageURL == currentVisiblePoster.imageURL) &&
-  //     (savedPosters[i].title == currentVisiblePoster.title) &&
-  //     (savedPosters[i].quote == currentVisiblePoster.quote)) {
-  //       alert("duplicate");
-  //     } else {
-        savedPosters.push(currentVisiblePoster)
-  //     }
-  // }
   console.log(savedPosters);
-  console.log(currentVisiblePoster);
+  for (var i=0; i < savedPosters.length; i++) {
+    if ((savedPosters[i].imageURL == currentVisiblePoster.imageURL) &&
+      (savedPosters[i].title == currentVisiblePoster.title) &&
+      (savedPosters[i].quote == currentVisiblePoster.quote)) {
+        alert("duplicate");
+      } else {
+        savedPosters.push(currentVisiblePoster)
+      }
+  }
+  console.log(savedPosters);
 };
 
 // If a user clicks the “Save This Poster” more than once
