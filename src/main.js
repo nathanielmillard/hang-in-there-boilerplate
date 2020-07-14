@@ -128,34 +128,40 @@ takeMeBackBtn.addEventListener('click', takeMeBack);
 viewSavedPosterBtn.addEventListener('click', viewSavedPosters);
 backToMainBtn.addEventListener('click', takeMeBack);
 showMyPosterBtn.addEventListener('click', showMyPoster);
-savePosterBtn.addEventListener('click', saveThisPoster)
+savePosterBtn.addEventListener('click', saveThisPoster);
 // functions and event handlers go here 👇
+
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
+
 function newRandomPoster() {
   currentPoster = new Poster(
     images[getRandomIndex(images)],
     titles[getRandomIndex(titles)],
-    quotes[getRandomIndex(quotes)],
+    quotes[getRandomIndex(quotes)]
   )
-  currentTitle.innerText = currentPoster.title
-  currentImage.src = currentPoster.imageURL
-  currentQuote.innerText = currentPoster.quote
+  currentTitle.innerText = currentPoster.title;
+  currentImage.src = currentPoster.imageURL;
+  currentQuote.innerText = currentPoster.quote;
 };
-function displayOff(){
-  mainPoster.classList.add("hidden"),
-  savedFormHidden.classList.add("hidden"),
-  posterFormHidden.classList.add("hidden")
+
+function displayOff() {
+  mainPoster.classList.add("hidden");
+  savedFormHidden.classList.add("hidden");
+  posterFormHidden.classList.add("hidden");
 };
+
 function changeToPosterForm() {
   displayOff();
   posterFormHidden.classList.remove("hidden");
 };
+
 function takeMeBack() {
   displayOff();
   mainPoster.classList.remove("hidden");
 };
+
 function viewSavedPosters() {
  event.preventDefault();
   displayOff();
@@ -163,8 +169,8 @@ function viewSavedPosters() {
   makeMiniPosters();
 };
 
-function makeMiniPosters(){
-  for (i=0; i<savedPosters.length; i++){
+function makeMiniPosters() {
+  for (var i = 0; i < savedPosters.length; i++) {
     var miniPoster = `
     <article class="mini-poster" id="${savedPosters[i]}.id">
       <img src=${savedPosters[i].imageURL}>
@@ -175,6 +181,7 @@ function makeMiniPosters(){
     savedPosterGrid.insertAdjacentHTML('beforeend', miniPoster);
   }
 };
+
 function showMyPoster() {
   event.preventDefault();
   var currentPoster = new Poster(
@@ -188,8 +195,9 @@ function showMyPoster() {
   images.push(inputPosterImage.value);
   titles.push(inputPosterTitle.value);
   quotes.push(inputPosterQuote.value);
-  takeMeBack()
+  takeMeBack();
 };
+
 function saveThisPoster() {
   event.preventDefault();
   if (!savedPosters.includes(currentPoster)) {
