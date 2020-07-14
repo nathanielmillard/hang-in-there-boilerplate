@@ -1,6 +1,3 @@
-// query selector variables go here 👇
-    //Global Variables (focus less on these)
-    //can also go within functions
 var currentTitle = document.querySelector(".poster-title");
 var currentQuote = document.querySelector(".poster-quote");
 var currentImage = document.querySelector(".poster-img");
@@ -20,7 +17,6 @@ var savePosterBtn = document.querySelector(".save-poster");
 var currentPoster = document.querySelector(".poster");
 var savedPosterGrid = document.querySelector(".saved-posters-grid");
 
-// we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
   "./assets/bridge.jpg",
@@ -121,7 +117,6 @@ var quotes = [
 var savedPosters = [];
 var currentPoster;
 
-// event listeners go here 👇
 window.addEventListener('load', displayRandomPoster);
 showRandomPosterBtn.addEventListener('click', displayRandomPoster);
 showMakePosterBtn.addEventListener('click', displayPosterForm);
@@ -130,15 +125,15 @@ viewSavedPosterBtn.addEventListener('click', displaySavedPosters);
 backToMainBtn.addEventListener('click', displayMainPage);
 showMyPosterBtn.addEventListener('click', showMyPoster);
 savePosterBtn.addEventListener('click', saveThisPoster);
-// functions and event handlers go here 👇
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
 
-
 function newRandomPoster() {
-  currentPoster = new Poster(images[getRandomIndex(images)], titles[getRandomIndex(titles)], quotes[getRandomIndex(quotes)]);
+  currentPoster = new Poster(images[getRandomIndex(images)],
+  titles[getRandomIndex(titles)],
+  quotes[getRandomIndex(quotes)]);
 };
 
 function displayRandomPoster() {
@@ -146,8 +141,7 @@ function displayRandomPoster() {
   currentImage.src = currentPoster.imageURL;
   currentTitle.innerText = currentPoster.title;
   currentQuote.innerText = currentPoster.quote;
-}
-
+};
 
 function displayOff() {
   mainPosterPage.classList.add("hidden");
@@ -165,7 +159,7 @@ function displayMainPage() {
   mainPosterPage.classList.remove("hidden");
 };
 
-function displaySavedPosters() {
+function displaySavedPosters(event) {
  event.preventDefault();
   displayOff();
   savedPostersPage.classList.remove("hidden");
@@ -190,21 +184,18 @@ function pushUserInput() {
   images.push(inputPosterImage.value);
   titles.push(inputPosterTitle.value);
   quotes.push(inputPosterQuote.value);
-}
+};
 
 function showMyPoster(event) {
   event.preventDefault();
-  currentPoster = new Poster(inputPosterImage.value, inputPosterTitle.value, inputPosterQuote.value);
-
+  currentPoster = new Poster(
+    inputPosterImage.value,
+    inputPosterTitle.value,
+    inputPosterQuote.value
+  );
   currentImage.src = currentPoster.imageURL;
   currentTitle.innerText = currentPoster.title;
   currentQuote.innerText = currentPoster.quote;
-
-
-
-  // currentTitle.innerText = inputPosterTitle.value;
-  // currentQuote.innerText = inputPosterQuote.value;
-  // currentImage.src = inputPosterImage.value;
   pushUserInput();
   displayMainPage();
 };
@@ -213,4 +204,4 @@ function saveThisPoster() {
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.unshift(currentPoster);
   }
-}
+};
