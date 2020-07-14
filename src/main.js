@@ -180,7 +180,7 @@ function displaySavedPosters() {
 function makeMiniPosters() {
   for (var i = 0; i < savedPosters.length; i++) {
     var miniPoster = `
-    <article class="mini-poster" id="${savedPosters[i]}.id">
+    <article class="mini-poster" id="${savedPosters[i].id}">
       <img src=${savedPosters[i].imageURL}>
       <h2>${savedPosters[i].title}</h2>
       <h4>${savedPosters[i].quote}</h4>
@@ -190,20 +190,26 @@ function makeMiniPosters() {
   }
 };
 
-function pushUserInput(images, titles, quotes) {
+function pushUserInput() {
   images.push(inputPosterImage.value);
   titles.push(inputPosterTitle.value);
   quotes.push(inputPosterQuote.value);
-  alert('hello');
-  console.log(images);
 }
 
 function showMyPoster() {
   event.preventDefault();
-  currentTitle.innerText = inputPosterTitle.value;
-  currentQuote.innerText = inputPosterQuote.value;
-  currentImage.src = inputPosterImage.value;
-  pushUserInput(current);
+  currentPoster = new Poster(inputPosterImage.value, inputPosterTitle.value, inputPosterQuote.value);
+
+  currentImage.src = currentPoster.imageURL;
+  currentTitle.innerText = currentPoster.title;
+  currentQuote.innerText = currentPoster.quote;
+
+
+
+  // currentTitle.innerText = inputPosterTitle.value;
+  // currentQuote.innerText = inputPosterQuote.value;
+  // currentImage.src = inputPosterImage.value;
+  pushUserInput();
   displayMainPage();
 };
 
