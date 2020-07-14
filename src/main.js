@@ -118,10 +118,7 @@ var quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
-var savedPosters = [
-];
-var currentPoster;
-var createdPoster;
+var savedPosters = [];
 
 // event listeners go here 👇
 window.addEventListener('load', newRandomPoster);
@@ -131,11 +128,11 @@ takeMeBackBtn.addEventListener('click', takeMeBack);
 viewSavedPosterBtn.addEventListener('click', viewSavedPosters);
 backToMainBtn.addEventListener('click', takeMeBack);
 showMyPosterBtn.addEventListener('click', showMyPoster);
-savePosterBtn.addEventListener('click', saveMyPoster)
+savePosterBtn.addEventListener('click', saveThisPoster)
 // functions and event handlers go here 👇
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
-}
+};
 function newRandomPoster() {
   currentPoster = new Poster(
     images[getRandomIndex(images)],
@@ -146,19 +143,22 @@ function newRandomPoster() {
   currentImage.src = currentPoster.imageURL
   currentQuote.innerText = currentPoster.quote
 };
+function displayOff(){
+  mainPoster.classList.add("hidden"),
+  savedFormHidden.classList.add("hidden"),
+  posterFormHidden.classList.add("hidden")
+};
 function changeToPosterForm() {
-  event.preventDefault();
-  mainPoster.classList.add("hidden");
+  displayOff();
   posterFormHidden.classList.remove("hidden");
 };
 function takeMeBack() {
+  displayOff();
   mainPoster.classList.remove("hidden");
-  posterFormHidden.classList.add("hidden");
 };
-
 function viewSavedPosters() {
-  event.preventDefault();
-  mainPoster.classList.add("hidden");
+ event.preventDefault();
+  displayOff();
   savedFormHidden.classList.remove("hidden");
   makeMiniPosters();
 };
@@ -166,7 +166,7 @@ function viewSavedPosters() {
 function makeMiniPosters(){
   for (i=0; i<savedPosters.length; i++){
     var miniPoster = `
-    <article class="mini-poster">
+    <article class="mini-poster" id="${savedPosters[i]}.id">
       <img src=${savedPosters[i].imageURL}>
       <h2>${savedPosters[i].title}</h2>
       <h4>${savedPosters[i].quote}</h4>
@@ -174,57 +174,26 @@ function makeMiniPosters(){
     `
     savedPosterGrid.insertAdjacentHTML('beforeend', miniPoster);
   }
-}
-// iterate through each saved array
-// creating an html element "small poster"
-// and push to that article
-
-
+};
 function showMyPoster() {
   event.preventDefault();
-  var createdPoster = new Poster(
+  var currentPoster = new Poster(
     inputPosterImage.value,
     inputPosterTitle.value,
     inputPosterQuote.value
 )
-  currentTitle.innerText = createdPoster.title;
-  currentQuote.innerText = createdPoster.quote;
-  currentImage.src = createdPoster.imageURL;
+  currentTitle.innerText = currentPoster.title;
+  currentQuote.innerText = currentPoster.quote;
+  currentImage.src = currentPoster.imageURL;
   images.push(inputPosterImage.value);
   titles.push(inputPosterTitle.value);
   quotes.push(inputPosterQuote.value);
-  console.log(titles, quotes);
   takeMeBack()
 };
-
-var currentVisiblePoster = new Poster(
-  currentImage.src,
-  currentTitle.innerText,
-  currentQuote.innerText,
-);
-
-function saveMyPoster() {
-  // for (var i=0; i < savedPosters.length; i++) {
-  //   if (savedPosters[i].title !== currentTitle.innerText) {
-  //       savedPosters.push(currentVisiblePoster)
-  //     } else if (savedPosters.length == 0) {
-        savedPosters.push(currentVisiblePoster)
-      // }
-      // }
+function saveThisPoster() {
+  event.preventDefault();
+  if (!savedPosters.includes(currentPoster)) {
+      savedPosters.unshift(currentPoster);
+    }
   console.log(savedPosters);
 };
-
-function displayOff(){
-  mainPoster.classList.add("hidden"),
-  savedFormHidden.classList.add("hidden"),
-  posterFormHidden.classList.add("hidden")
-}
-
-
-// If a user clicks the “Save This Poster” more than once
-//on a single poster, still only be saved once (no duplicates)
-
-// When a user clicks the “Show Saved Posters” button,
-// we should see the saved posters section
-// All the posters in the savedPosters array
-//should be displayed in the saved posters grid section
