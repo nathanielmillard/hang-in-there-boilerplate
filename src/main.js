@@ -124,10 +124,11 @@ var quotes = [
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
 var savedPosters = [];
+var currentPoster;
 
 // event listeners go here 👇
-window.addEventListener('load', newRandomPoster);
-showRandomPosterBtn.addEventListener('click', newRandomPoster);
+window.addEventListener('load', displayRandomPoster);
+showRandomPosterBtn.addEventListener('click', displayRandomPoster);
 showMakePosterBtn.addEventListener('click', displayPosterForm);
 takeMeBackBtn.addEventListener('click', displayMainPage);
 viewSavedPosterBtn.addEventListener('click', displaySavedPosters);
@@ -140,11 +141,18 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
 
+
 function newRandomPoster() {
-  currentTitle.innerText = titles[getRandomIndex(titles)];
-  currentImage.src = images[getRandomIndex(images)];
-  currentQuote.innerText = quotes[getRandomIndex(quotes)];
+  currentPoster = new Poster(images[getRandomIndex(images)], titles[getRandomIndex(titles)], quotes[getRandomIndex(quotes)]);
 };
+
+function displayRandomPoster() {
+  newRandomPoster();
+  currentImage.src = currentPoster.imageURL;
+  currentTitle.innerText = currentPoster.title;
+  currentQuote.innerText = currentPoster.quote;
+}
+
 
 function displayOff() {
   mainPosterPage.classList.add("hidden");
@@ -182,15 +190,20 @@ function makeMiniPosters() {
   }
 };
 
+function pushUserInput(images, titles, quotes) {
+  images.push(inputPosterImage.value);
+  titles.push(inputPosterTitle.value);
+  quotes.push(inputPosterQuote.value);
+  alert('hello');
+  console.log(images);
+}
+
 function showMyPoster() {
   event.preventDefault();
   currentTitle.innerText = inputPosterTitle.value;
   currentQuote.innerText = inputPosterQuote.value;
   currentImage.src = inputPosterImage.value;
-  images.push(inputPosterImage.value);
-  titles.push(inputPosterTitle.value);
-  quotes.push(inputPosterQuote.value);
-  console.log(titles, images, quotes);
+  pushUserInput(current);
   displayMainPage();
 };
 
