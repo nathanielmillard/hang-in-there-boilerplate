@@ -173,9 +173,10 @@ function displaySavedPosters() {
 };
 
 function makeMiniPosters() {
+  savedPosterGrid.innerHTML = '';
   for (var i = 0; i < savedPosters.length; i++) {
     var miniPoster = `
-    <article class="mini-poster" /*id="${savedPosters[i].id}"*/>
+    <article class="mini-poster" id="${savedPosters[i].id}">
       <img src=${savedPosters[i].imageURL}>
       <h2>${savedPosters[i].title}</h2>
       <h4>${savedPosters[i].quote}</h4>
@@ -191,7 +192,7 @@ function pushUserInput() {
   quotes.push(inputPosterQuote.value);
 }
 
-function showMyPoster() {
+function showMyPoster(event) {
   event.preventDefault();
   currentPoster = new Poster(inputPosterImage.value, inputPosterTitle.value, inputPosterQuote.value);
 
@@ -209,12 +210,7 @@ function showMyPoster() {
 };
 
 function saveThisPoster() {
-  // event.preventDefault();
-  savedPosters.push(currentPoster);
-  console.log(savedPosters)
-    // for (var i = 0; i < savedPosters.length; i++) {
-    //   if ()
-    // }
+  if (!savedPosters.includes(currentPoster)) {
+    savedPosters.unshift(currentPoster);
+  }
 }
-// for loop
-// check the values currentPoster.imageURL, .... !-- savedPoster[i].title
