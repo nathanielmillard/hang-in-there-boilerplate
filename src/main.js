@@ -19,11 +19,6 @@ var inputPosterQuote = document.querySelector("#poster-quote");
 var savePosterBtn = document.querySelector(".save-poster");
 var currentPoster = document.querySelector(".poster");
 var savedPosterGrid = document.querySelector(".saved-posters-grid");
-var posterObject = {
-  title: currentTitle.value,
-  quote: currentQuote.value,
-  image: currentImage.value
-};
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -180,7 +175,7 @@ function displaySavedPosters() {
 function makeMiniPosters() {
   for (var i = 0; i < savedPosters.length; i++) {
     var miniPoster = `
-    <article class="mini-poster" id="${savedPosters[i].id}">
+    <article class="mini-poster" /*id="${savedPosters[i].id}"*/>
       <img src=${savedPosters[i].imageURL}>
       <h2>${savedPosters[i].title}</h2>
       <h4>${savedPosters[i].quote}</h4>
@@ -214,10 +209,12 @@ function showMyPoster() {
 };
 
 function saveThisPoster() {
-  event.preventDefault();
-  if (!savedPosters.includes(posterObject)) {
-      savedPosters.unshift(posterObject);
-    }
-
-  console.log(savedPosters);
-};
+  // event.preventDefault();
+  savedPosters.push(currentPoster);
+  console.log(savedPosters)
+    // for (var i = 0; i < savedPosters.length; i++) {
+    //   if ()
+    // }
+}
+// for loop
+// check the values currentPoster.imageURL, .... !-- savedPoster[i].title
