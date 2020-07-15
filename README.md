@@ -18,12 +18,19 @@ This is a website that randomly generates an inspirational “poster” from a d
 
 ### Project Milestones:
 
-## Iteration 0: 
- 1 When user clicks on the "Show Another Random Poster" button, a new random poster, image and quote is rendered to the DOM.
- 2 When user reloads browser, the same fuctionality is rendered as our "Show Another Random Poster". 
-
+### Iteration 0: Creating randomnization
+ * When user clicks on the "Show Another Random Poster" button, a new random poster, image and quote is rendered to the DOM.
+ * When user reloads browser, the same fuctionality is rendered as our "Show Another Random Poster". 
 ![](assets/iteration-0-progression.gif)
 
+### Iteration 1: Switching display views 
+ * User navigates back and forth between our main page, create poster page, and saved poster page. 
+
+### Iteration 2: Creating a custom poster
+ * User navigates to our create poster page and enters their own customized image URL, a title, and quote.
+ * Once our user clicks on the "Show my poster" button, the entered data is captured and pushed to our data model. 
+ * Success! We created our own poster and displayed it to the DOM
+ 
 ### Future Iterations Goals
    1 Complete the full scope of the project (iteration 4) which involves creating a double click event listener on a saved posters page allowing the user more control to remove saved posters.
    2 Continue developing customization features for our saved posters page that would allow the user to drag and reorder posters, adding a toggle event listener that would allow the user to expand each image based on a mouse click, then resize back to original on second mouse click 
