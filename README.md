@@ -21,7 +21,7 @@ This is a website that randomly generates an inspirational “poster” from a d
 ## Iteration 0: 
  1 When user clicks on the "Show Another Random Poster" button, a new random poster, image and quote is rendered to the DOM.
  2 When user reloads browser, the same fuctionality is rendered as our "Show Another Random Poster". 
-![](http://www.giphy.com/gifs/KxhPo07IIuMxtoKHtA)
+![](Jul-14-2020 22-13-48.gif)
 
 
 ### Future Iterations Goals
