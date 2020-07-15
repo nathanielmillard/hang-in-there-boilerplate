@@ -3,7 +3,7 @@
  
 ### Project Description
   * This is our first paired project as Mod-1 students at Turning’s Front End Engineering Program. 
-  * [Deployed website:](https://nathanielmillard.github.io/hang-in-there-boilerplate/)
+  * [Hang In There deployed website](https://nathanielmillard.github.io/hang-in-there-boilerplate/)
 
 ### Learning Goals
   * Create a solid foundation for key concepts like DOM manipulation, data model, classes, objects, and primitive data types
@@ -53,11 +53,9 @@ This is a website that randomly generates an inspirational “poster” from a d
   * Gained a better understanding of our own unique learning styles and we both helped eachother improve our gaps in understanding
   * Learned how to use giphy capture application for README.md
 
-### Contributors and collaborators
-* **Nathaniel Millard** [GitHub Link:](https://github.com/nathanielmillard)
-* **Joe Varela** [GitHub Link:](https://github.com/jobbotrock)
+### Contributors, collaborators, and links
+* **Nathaniel Millard** [GitHub](https://github.com/nathanielmillard)
+* **Joe Varela** [GitHub](https://github.com/jobbotrock)
 * [Original repo:](https://github.com/turingschool-examples/hang-in-there-boilerplate/)
-
-[I'm an inline-style link](https://www.google.com)
 
 We want to thank the Turing School for the skills to accomplish this project, and discussion and reviewing from Jake West, John Adams, Kim McCaskill, and the patience of our partners and family while we take time to work, as well as attempt to explain our processes to them along the way. 
