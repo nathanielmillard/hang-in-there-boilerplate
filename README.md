@@ -21,8 +21,8 @@ This is a website that randomly generates an inspirational “poster” from a d
 ## Iteration 0: 
  1 When user clicks on the "Show Another Random Poster" button, a new random poster, image and quote is rendered to the DOM.
  2 When user reloads browser, the same fuctionality is rendered as our "Show Another Random Poster". 
-![](assets/Jul-14-2020-22-13-48.gif)
 
+![](assets/iteration-0-progression.gif)
 
 ### Future Iterations Goals
    1 Complete the full scope of the project (iteration 4) which involves creating a double click event listener on a saved posters page allowing the user more control to remove saved posters.
