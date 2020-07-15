@@ -3,7 +3,7 @@
  
 ### Project Description
   * This is our first paired project as Mod-1 students at Turning’s Front End Engineering Program. 
-  * Deployed website: https://nathanielmillard.github.io/hang-in-there-boilerplate/
+  * [Deployed website:](https://nathanielmillard.github.io/hang-in-there-boilerplate/)
 
 ### Learning Goals
   * Create a solid foundation for key concepts like DOM manipulation, data model, classes, objects, and primitive data types
@@ -35,20 +35,29 @@ This is a website that randomly generates an inspirational “poster” from a d
 
 ![](assets/iteration-1-progression.gif)
  
-### Future Iterations Goals
-   1 Complete the full scope of the project (iteration 4) which involves creating a double click event listener on a saved posters page allowing the user more control to remove saved posters.
-   2 Continue developing customization features for our saved posters page that would allow the user to drag and reorder posters, adding a toggle event listener that would allow the user to expand each image based on a mouse click, then resize back to original on second mouse click 
-   3 Create an error message if the user accidentally double clicks on the "Show my poster" button
+### Iteration 3: Saving posters
+ * We both struggled a lot on this iteration but we managed to complete this milestone on the last day of our project. 
+ * Gained appreciation of how to utilize our data model **"the wrong way"**. After coaching from our respective mentors, we were able to change our approach and complete the iteration **the right way** without compromising our source of truth. This was a huge win for us!
 
-### Personal Wins
+![](assets/iteration-3-progression.gif)
+ 
+### Future Iterations Goals
+   * 1 Complete the full scope of the project (iteration 4) which involves creating a double click event listener on a saved posters page allowing the user more control to remove saved posters.
+   * 2 Continue developing customization features for our saved posters page that would allow the user to drag and reorder posters, adding a toggle event listener that would allow the user to expand each image based on a mouse click, then resize back to original on second mouse click 
+   * 3 Create an error message if the user accidentally double clicks on the "Show my poster" button
+
+### Team Wins
   * Reserved time to help other students with their projects
   * Gained a better understanding of how to connect our data model to the DOM without compromising our source of truth.  
   * Familiarized ourselves with new technologies like Trello and GitHub
-  * Gained a better understanding of our own unique learning styles and we both helped each improve our gaps in understanding
+  * Gained a better understanding of our own unique learning styles and we both helped eachother improve our gaps in understanding
+  * Learned how to use giphy capture application for README.md
 
 ### Contributors and collaborators
-* **Nathaniel Millard** GitHub Link: https://github.com/nathanielmillard
-* **Joe Varela** GitHub Link: https://github.com/jobbotrock
-* **Original repo:** https://github.com/turingschool-examples/hang-in-there-boilerplate/
+* **Nathaniel Millard** [GitHub Link:](https://github.com/nathanielmillard)
+* **Joe Varela** [GitHub Link:](https://github.com/jobbotrock)
+* [Original repo:](https://github.com/turingschool-examples/hang-in-there-boilerplate/)
+
+[I'm an inline-style link](https://www.google.com)
 
 We want to thank the Turing School for the skills to accomplish this project, and discussion and reviewing from Jake West, John Adams, Kim McCaskill, and the patience of our partners and family while we take time to work, as well as attempt to explain our processes to them along the way. 
